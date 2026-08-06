@@ -1,17 +1,41 @@
 aid: alloy-enterprises
 name: Alloy Enterprises
-description: 'Alloy Enterprises is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: 'Alloy Enterprises is a Burlington, Massachusetts advanced-manufacturing company that
+  makes single-piece aluminum thermal management components using Stack Forging, its patented
+  digital fabrication process. Rather than printing from metal powder, Stack Forging laser-cuts
+  sheets of aluminum and diffusion-bonds them under controlled heat and pressure into monolithic,
+  porosity-free parts carrying complex internal geometries that casting, forging and machining
+  cannot produce. The company sells cold plates, liquid-cooling components, vapor chambers and
+  oscillating heat pipes into data-center cooling, defense electronics, photonics, semiconductor
+  equipment, e-mobility, heavy equipment and industrial fluid-handling markets, and states its
+  parts cut pressure drop by up to 4x and improve thermal resistance by more than 35%. Founded in
+  2020 and spun out of work begun in Somerville, Massachusetts, Alloy Enterprises was acquired by
+  Johnson Controls in a deal signed 2026-02-18 and closed 2026-05-13, and now operates as part of
+  that company''s data-center thermal management business. Alloy Enterprises is a hardware and
+  materials manufacturer: it publishes no public developer API, developer portal, SDK, CLI,
+  sandbox, status page or machine-readable specification of any kind. See x-coverage below.'
 url: https://raw.githubusercontent.com/api-evangelist/alloy-enterprises/refs/heads/main/apis.yml
+image: https://alloyenterprises.co/wp-content/uploads/2023/08/cropped-alloy-enterprises-fav-512x512-1-192x192.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pipeline
 specificationVersion: '0.20'
 created: '2026-08-06'
 modified: '2026-08-06'
 tags:
 - Company
+- Advanced Manufacturing
+- Additive Manufacturing
+- Thermal Management
+- Data Center Cooling
+- Liquid Cooling
+- Cold Plates
+- Aluminum
+- Materials Science
+- Defense Electronics
+- Semiconductor Equipment
+- Hardware
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +44,73 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
+  url: https://alloyenterprises.co/
+- type: About
+  url: https://alloyenterprises.co/about/
+- type: Products
+  name: Stack Forging
+  url: https://alloyenterprises.co/stack-forging/
+- type: Solutions
+  name: Thermal management solutions
+  url: https://alloyenterprises.co/thermal-management/
+- type: Blog
+  name: News
+  url: https://alloyenterprises.co/news/
+- type: Resources
+  url: https://alloyenterprises.co/resources/
+- type: FAQ
+  url: https://alloyenterprises.co/faqs/
+- type: Videos
+  url: https://alloyenterprises.co/video-library/
+- type: Events
+  url: https://alloyenterprises.co/events/
+- type: Careers
+  url: https://alloyenterprises.co/careers/
+- type: Sustainability
+  url: https://alloyenterprises.co/sustainability/
+- type: Compliance
+  name: ISO 9001:2015, ITAR registration, RoHS 3 and Conflict Minerals policy, with downloadable
+    certificates
+  url: https://alloyenterprises.co/compliance/
+- type: PrivacyPolicy
+  url: https://alloyenterprises.co/privacy-policy/
+- type: ContactUs
+  url: https://alloyenterprises.co/contact-us/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/alloy-enterprises-inc/
+- type: Youtube
+  url: https://www.youtube.com/@AlloyEnterprises
+- type: SecondaryMarket
   url: https://www.nasdaqprivatemarket.com/
+- type: DomainSecurity
+  url: security/alloy-enterprises-domain-security.yml
+- type: LLMsTxt
+  url: llms/alloy-enterprises-llms.txt
+- type: WellKnownProbe
+  name: Contract-discovery and .well-known probe record (no documents found)
+  url: well-known/alloy-enterprises-well-known.yml
+x-enrichment:
+  date: '2026-08-06'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Alloy Enterprises manufactures aluminum thermal-management hardware by diffusion-bonding
+    laser-cut sheet metal, and its entire 29-page website is marketing, product, compliance and
+    careers content with no developer section at all — /developers, /developer and /api all 404,
+    and api., docs., developer. and portal..alloyenterprises.co are NXDOMAIN.
+  evidence:
+  - url: https://alloyenterprises.co/developers
+    status: 404
+  - url: https://alloyenterprises.co/openapi.json
+    status: 404
+  - url: https://alloyenterprises.co/.well-known/agent-card.json
+    status: 404
+  - url: https://alloyenterprises.co/llms.txt
+    status: 404
+  - url: https://alloyenterprises.co/about/
+    status: 200
+  checked: '2026-08-06'

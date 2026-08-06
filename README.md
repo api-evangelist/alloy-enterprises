@@ -42,5 +42,21 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Alloy Enterprises is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Alloy Enterprises is a Burlington, Massachusetts advanced-manufacturing company that makes single-piece
+aluminum thermal management components using Stack Forging, its patented process for diffusion-bonding
+laser-cut aluminum sheets into monolithic, porosity-free parts with complex internal geometries. It sells
+cold plates, liquid-cooling components, vapor chambers and oscillating heat pipes into data-center cooling,
+defense electronics, photonics, semiconductor equipment, e-mobility, heavy equipment and industrial
+fluid-handling markets. Founded in 2020, it was acquired by Johnson Controls in a deal signed 2026-02-18
+and closed 2026-05-13.
+
+**No API surface.** Alloy Enterprises is a hardware and materials manufacturer and publishes no public
+developer API, developer portal, SDK, CLI, sandbox, status page or machine-readable specification. The
+full contract-discovery sweep and its HTTP statuses are recorded in
+[`well-known/alloy-enterprises-well-known.yml`](well-known/alloy-enterprises-well-known.yml).
+
+The site runs WordPress and exposes a route index at `/wp-json/`, but the company's own
+[robots.txt](https://alloyenterprises.co/robots.txt) disallows `/wp-json/` for all user agents. API
+Evangelist honors that: nothing was derived from it and no OpenAPI was written.
+
+- https://alloyenterprises.co/

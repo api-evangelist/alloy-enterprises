@@ -1,0 +1,146 @@
+generated: '2026-08-06'
+method: probed
+source: live probes of every host in apis.yml (alloyenterprises.co) plus DNS checks for the
+  conventional API/docs subdomains
+hosts_probed:
+- alloyenterprises.co
+documents:
+- host: alloyenterprises.co
+  path: /.well-known/security.txt
+  spec: RFC 9116
+  status: 404
+  content_type: text/html
+- host: alloyenterprises.co
+  path: /.well-known/openid-configuration
+  spec: OpenID Connect Discovery
+  status: 404
+  content_type: text/html; charset=UTF-8
+- host: alloyenterprises.co
+  path: /.well-known/oauth-authorization-server
+  spec: RFC 8414 OAuth 2.0 Authorization Server Metadata
+  status: 404
+  content_type: text/html; charset=UTF-8
+- host: alloyenterprises.co
+  path: /.well-known/oauth-protected-resource
+  spec: RFC 9728 OAuth 2.0 Protected Resource Metadata
+  status: 404
+  content_type: text/html; charset=UTF-8
+- host: alloyenterprises.co
+  path: /.well-known/api-catalog
+  spec: RFC 9727
+  status: 404
+  content_type: text/html; charset=UTF-8
+- host: alloyenterprises.co
+  path: /.well-known/ai-plugin.json
+  status: 404
+  content_type: text/html; charset=UTF-8
+- host: alloyenterprises.co
+  path: /.well-known/agent-card.json
+  spec: A2A 1.0.0
+  status: 404
+  content_type: text/html; charset=UTF-8
+- host: alloyenterprises.co
+  path: /.well-known/agent.json
+  spec: A2A pre-0.3 legacy
+  status: 404
+  content_type: text/html; charset=UTF-8
+- host: alloyenterprises.co
+  path: /llms.txt
+  status: 404
+  content_type: text/html
+- host: alloyenterprises.co
+  path: /llms-full.txt
+  status: 404
+  content_type: text/html
+result: none
+
+contract_discovery:
+  summary: >-
+    No machine-readable API contract of any kind is published by Alloy Enterprises. The full
+    STEP 0b discovery sweep was run against the only host the company operates and every probe
+    missed.
+  rest_openapi:
+    result: none
+    probed:
+    - {path: /openapi.json, status: 404}
+    - {path: /openapi.yaml, status: 404}
+    - {path: /swagger.json, status: 404}
+    - {path: /v1/openapi.json, status: 404}
+    - {path: /api-docs, status: 404}
+    - {path: /docs, status: 404}
+    - {path: /redoc, status: 404}
+    - {path: /api, status: 404}
+    note: >-
+      Every one of these returned the WordPress theme's 404 page (~105 KB of text/html), not a
+      spec. There is no API host to probe separately: api., docs., developer., developers.,
+      portal., status. and app..alloyenterprises.co all return NXDOMAIN, so the marketing site
+      is the only host in play.
+  graphql:
+    result: none
+    probed:
+    - {path: /graphql, status: 404}
+  mcp:
+    result: none
+    note: No MCP endpoint is advertised anywhere on the site, and no llms.txt exists to list one.
+  a2a:
+    result: none
+    note: >-
+      No A2A agent card was found on any Alloy Enterprises host — neither the canonical
+      /.well-known/agent-card.json nor the legacy /.well-known/agent.json returned a JSON
+      object. Per the enrichment contract no a2a/ artifact was authored and no AgentCard
+      pointer is emitted; an agent card may only ever be recorded from an observed 200 JSON body.
+  developer_surface:
+    result: none
+    probed:
+    - {path: /developers, status: 404}
+    - {path: /developer, status: 404}
+    - {path: /terms/, status: 404}
+    note: >-
+      The site has no developer section. Its 29 published pages (enumerated from the Yoast
+      page-sitemap the site advertises in robots.txt) are entirely marketing, product, market,
+      compliance, careers and resource pages.
+
+wordpress_rest_api:
+  observed: true
+  url: https://alloyenterprises.co/wp-json/
+  harvested: false
+  reason: robots-disallow
+  robots_txt: https://alloyenterprises.co/robots.txt
+  robots_directive: |
+    User-agent: *
+    Disallow: /wp-json/
+    Disallow: /?rest_route=
+  note: >-
+    alloyenterprises.co runs WordPress and its route index at /wp-json/ answers anonymously.
+    The site's own robots.txt (HTTP 200, served with Crawl-delay: 10) explicitly disallows
+    /wp-json/ and /?rest_route= for all user agents. API Evangelist honors robots.txt: no
+    OpenAPI was derived from that route index and no openapi/ artifact was written for this
+    provider, even though the equivalent CMS surface has been captured for other manufacturers
+    in this catalog whose robots.txt did not disallow it. This is a deliberate abstention, not
+    a discovery failure. It changes nothing about the company's API posture either way — the
+    WordPress REST API is the corporate website's content/CMS plumbing, not a product API, and
+    Alloy Enterprises ships no product API.
+
+unattributed:
+- item: github.com/alloy-enterprises
+  status: 200
+  note: >-
+    A GitHub organization at this exact slug exists and was created 2020-06-18, which is close
+    to the company's founding year, but it carries no display name, no description, no blog
+    URL, no location and zero public repositories. There is nothing linking it to this company
+    and the company's site never references GitHub, so no GitHubOrganization pointer is
+    emitted. Recording it here so a later round does not re-litigate the same dead end.
+
+x-evidence:
+  fetched: '2026-08-06'
+  probe_method: >-
+    curl following redirects with a User-Agent of api-evangelist-enrichment/1.0, requests
+    spaced 3s apart. Note that alloyenterprises.co sits behind Cloudflare and returns an
+    "Attention Required! | Cloudflare" interstitial to a generic desktop-browser User-Agent
+    while serving normal content to the honest crawler UA above — every status recorded in
+    this file was taken from a response that carried real site content or the site's own
+    WordPress 404 page.
+  controls: >-
+    The 404s here are trustworthy, not soft-404s: paths that certainly exist (/, /about/,
+    /compliance/, /careers/, /news/, /resources/) all returned 200 from the same client in the
+    same sweep, so the host does distinguish present from absent.
