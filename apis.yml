@@ -15,6 +15,17 @@ description: 'Alloy Enterprises is a Burlington, Massachusetts advanced-manufact
   materials manufacturer: it publishes no public developer API, developer portal, SDK, CLI,
   sandbox, status page or machine-readable specification of any kind. See x-coverage below.'
 url: https://raw.githubusercontent.com/api-evangelist/alloy-enterprises/refs/heads/main/apis.yml
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - none
+  generated: '2026-08-28'
+  method: derived
 image: https://alloyenterprises.co/wp-content/uploads/2023/08/cropped-alloy-enterprises-fav-512x512-1-192x192.png
 x-type: company
 x-source: harvest:secondary-market
